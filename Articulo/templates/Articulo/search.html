@@ -1,0 +1,50 @@
+{%extends 'Articulo/base.html' %}
+
+{% block content %}
+	{% if query %}
+    	<h2>Resultados para "{{ query|escape }}":</h2>
+		<div class = "container">
+		 <div class="jumbotron">
+    	{% if results %}
+    	  	{% for articulo in results %}
+				<div class="card text-white border-dark mb-3" style="max-width: 20rem;">
+						<div class="card-header">{{articulo.type|escape}}</div>
+  						<div class="card-body">
+							<h4 class="card-title">{{ articulo.descripcion|escape}}</h4>
+							<p class="card-text">{{ articulo.Precio|escape }}</p>
+  						</div>
+				</div>
+    	  	{% endfor %}
+    	{% else %}
+			<p>No se encuentra {{ query }}</p>
+				{% for articulo in resultslist %}
+					<div class="card text-white border-dark mb-3" style="max-width: 20rem;">
+                        <div class="card-header">{{articulo.type|escape}}</div>
+                        <div class="card-body">
+                            <h4 class="card-title">{{ articulo.descripcion|escape}}</h4>
+                            <p class="card-text">{{ articulo.Precio|escape }}</p>
+                        </div>
+                	</div>
+
+				{% endfor %}
+
+		 {% endif %}
+		 </div>
+		 </div>
+	{%else %}
+		<div class="container">
+		 <div class="jumbotron">
+		{% for articulo in resultslist %}
+			<div class="card text-white border-dark mb-3" style="max-width: 20rem;">
+                   <div class="card-header">{{articulo.type|escape}}</div>
+                   <div class="card-body">
+                   <h4 class="card-title">{{ articulo.descripcion|escape}}</h4>
+                   <p class="card-text">{{ articulo.Precio|escape }}</p>
+               </div>
+           </div>
+		{% endfor %}
+		</div>
+		</div>
+	{% endif %}
+
+{% endblock %}

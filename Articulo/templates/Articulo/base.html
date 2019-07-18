@@ -1,0 +1,37 @@
+{% load static %}
+<html>
+	<head>
+		<title> AndesFood </title>
+        <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}"> 
+    </head>
+	<body>
+		<div class="jumbotron">
+  		<h1 class="display-3">AndesFood</h1>
+  			<p> Aplicacion para el mundo</p>
+		</div>
+		<div class= "jumbotron">	
+		<nav class= "navbar navbar-expand-lg navbar-dark bg-dark">
+			<ul class="navbar-nav mr-auto">
+				<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+  					<button type="button" class="btn btn-primary">Categoria</button>
+  					<div class="btn-group" role="group">
+    					<button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+    					<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+      						<a class="dropdown-item" href="#">Dropdown link</a>
+     						<a class="dropdown-item" href="#">Dropdown link</a>
+    					</div>
+  					</div>
+				</div>
+			</ul>
+			<form class= "form-inline my-2 my-lg-0" action="." method="GET">
+                <label for="q">Buscar: </label>
+                <input class="form-control mr-sm-2" type="text" name="q" value="{{ query|escape }}">
+                <input class="btn btn-secondary my-2 my-sm-0" type="submit" value="Buscar">
+            </form>
+            {% block content %}
+            {% endblock %}
+		</nav>
+		</div>
+		<script src="{% static 'bootstrap.min.js' %}> </script>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>Lista de Articulos</title>
+        <style>
+            h1{
+                color: white;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                padding-top: 20pt;
+                padding-bottom: 20pt;
+                padding-left: 20pt; 
+                background: #000000
+            }
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+                margin-left: 20pt;
+                margin-right: 30pt;
+            }
+            div.topnav {
+                font-family: arial, sans-serif;
+                background: #000000;
+                color: aliceblue;
+                font: 70pt;
+                height: 30pt;
+                padding-top: 20px;
+                padding-left: 30pt;
+            }
+            div.topnav.a.active {
+                padding-left: 10pt;
+            }
+            
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+        </style>
+        <div class="topnav">
+            <a class="active" href="#home">Articulos</a>
+            <a href="/admin/almacen/articulo/add/">Nuevo Articulo</a>
+        </div>
+
+    </head>
+    <body>
+        <div>
+            <h1 > Lista de Articulos </h1 >
+            <table>
+                <tr>
+                    <th>categoria</th>
+                    <th>Descripcion</th>
+                    <th>Fecha de Ingreso</th>
+                    <th>Precio</th>
+					<th>Cantidad</th>
+                </tr>
+                {% for art in articulos %} <tr >
+                        <td > {{ art.type }} </td >
+                        <td > {{ art.descripcion }} </td >
+                        <td > {{ art.f_ingreso }} </td >
+						<td > {{ art.Precio }} </td>
+                        <td > {{ art.count_stock|linebreak }} </td >
+                        </tr>
+                {% endfor %}
+
+            </table>
+        </div >
+    </body>
+
+    
+</html>

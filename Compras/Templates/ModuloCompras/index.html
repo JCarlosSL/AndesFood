@@ -1,0 +1,39 @@
+{% extends 'Base/base.html'%}
+{% block content %}
+<!--TABLA DE PROVEHEDOR-->
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>id</td>
+			<td>Nombre</td>
+			<td>Apellido</td>
+            <td>Edad</td>
+			<td>Telefono</td>
+			<td>Email</td>
+			<td>Domicilio</td>		
+		</tr>	
+	</thead>
+	<tbody>
+		{% if provehedores %}
+		{% for provehedor in provehedores %}
+		<tr>
+			<td>{{ provehedor.id }}</td>
+			<td>{{ provehedor.nombre }}</td>
+			<td>{{ provehedor.apellido }}</td>
+            <td>{{ provehedor.edad}}</td>
+            <td>{{ provehedor.telefono}}</td>
+            <td>{{ provehedor.email}}</td>
+            <td>{{ provehedor.domicilio }}</td>            
+		</tr>
+		{% endfor %}
+		{% else %}
+		<h1>Usuario No resgistrado</h1>
+		{% endif %}
+	</tbody>
+</table> 
+<td>
+    <a class="btn btn-primary" href="{%url 'ModuloCompras:producto_view'%}">Vender Producto</a>
+
+</td>
+
+{% endblock content %}
